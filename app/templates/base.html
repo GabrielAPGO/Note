@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+        <!-- Icon page -->
+        <link rel="icon" type="image/svg" href="{% static 'app/img/icon.svg' %}"/>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header style="justify-content: space-between; backdrop-filter: blur(10px); box-shadow: #f1f1f1 0px 0px 30px;" class="centralize">
+            <a href="/"><img src="{% static 'app/img/logo.svg' %}" alt="Note"></a>
+
+            {% if user.is_authenticated %}
+                <div class="screen">
+                    <ul>
+                        <a href="{% url 'notes' %}"><li>My notes</li></a>
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div class="screen">
+                {% if user.is_authenticated %}
+                    {{user.username}}
+                    <a href="{% url 'logout' %}"><div class="btn-1" style="margin-left: 10px;">log out</div></a>
+                {% else %}
+                    <a href="{% url 'login' %}"><div class="btn-1">Log in</div></a>
+                    <a href="{% url 'register' %}"><div class="btn-1">Register</div></a>
+                {% endif %}
+            </div>
+
+            <div class="mobile-screen">
+                <ion-icon class="mobile-screen-icon" name="menu-outline"></ion-icon>
+
+                <input class="mobile-screen-input" type="checkbox">
+
+                <ul class="mobile-screen-menu">
+                    {% if user.is_authenticated %}
+                        <li style="background: #000; color: #fff; border-bottom: 1px solid #fff;"></ion-icon>{{user.username}}</li>
+                        <a href="{% url 'logout' %}"><li>log out</li></a>
+                    {% else %}
+                        <a href="{% url 'login' %}"><li>Log in</li></a>
+                        <a href="{% url 'register' %}"><li>Register</li></a>
+                    {% endif %}
+                </ul>
+            </div>
+        </header>
+
+        <!-- <img src="https://img.freepik.com/fotos-gratis/textura-de-papel-branco_1194-2301.jpg?w=2000" alt="" style="
+            height: 100%;
+            width: 100%;
+            
+            position: absolute;
+
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: -1;
+        "> -->
+
+        <main>
+            {% include '_message.html' %}
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer style="box-shadow: #f1f1f1 0px 0px 30px;">
+            <div>&copy; 2023 Gaap - All rights reserved.</div>
+            <div>Developed by <a href="https://github.com/GabrielAPGO">GabrielAPGO</a></div>
+        </footer>
+
+        {% block scripts %}{% endblock scripts %}
+
+        <!-- Icons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    </body>
+</html>

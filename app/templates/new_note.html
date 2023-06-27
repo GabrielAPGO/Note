@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}New note{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+
+	<div>
+		<div class="centralize">
+			<h1>New note</h1>
+		</div>
+
+		<div class="col-md-6 offset-md-3">
+			<form method="post" action="{% if request.method == 'POST' %}{% url 'new-note' %}{% endif %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				
+				<div class="centralize" style="justify-content: right;">
+                    <input style="padding: 9px 19px;" type="submit" class="btn-1" value="Create">
+                </div>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{note.title}}{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+
+    <div class="col-md-8 offset-md-2">
+        <h1>{{note.title}}</h1>
+
+        {% if note.importance == 1 %}
+            <ion-icon style="color: #0f9c00;" name="bookmark"></ion-icon> Little important
+        {% elif note.importance == 2 %}
+            <ion-icon style="color: #ede635;" name="bookmark"></ion-icon> Important
+        {% elif note.importance == 3 %}
+            <ion-icon style="color: #af0404;" name="bookmark"></ion-icon> Very important
+        {% endif %}
+
+        <div style="text-align: justify; margin: 20px 0;">
+            {{note.content|linebreaks}}
+        </div>
+
+        <div style="justify-content: right;" class="centralize">
+            <a href="{% url 'note-update' note.id %}"><div style="margin-right: 5px;" class="btn-1">Edit</div></a>
+            <a href="{% url 'note-delete' note.id %}"><div class="btn-1">Delete</div></a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="centralize">
+            <h1>Create an account</h1>
+        </div>
+    
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <div class="centralize" style="justify-content: right;">
+                    <input style="padding: 9px 19px;" type="submit" class="btn-1" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

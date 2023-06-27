@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="centralize">
+            <h1>Log in</h1>
+        </div>
+
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                {% csrf_token %}
+    
+                <div class="mb-3">
+                    <label class="form-label" for="id_username">Username:</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="id_password">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+    
+                <div class="centralize" style="justify-content: space-between;">
+                    <a href="{% url 'password_reset' %}" style="text-decoration: underline !important;">I forgot my password</a>
+    
+                    <input style="padding: 9px 19px;" type="submit" class="btn-1" value="Log in">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

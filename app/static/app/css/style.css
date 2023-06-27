@@ -1,0 +1,232 @@
+/* All --------------------------------------------------------------------------------------------------------------------- */
+/* Predefined colors */
+:root {
+    --color-primary: #000;
+    --color-secondary: #000;
+
+    --background-primary: #fbfbfb;
+    --background-secondary: #fbfbfb;
+}
+
+* {
+    color: #000;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    position: relative;
+}
+
+a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+ul, ol {
+    list-style: none;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Special classes */
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-1 {
+    background: var(--color-primary);
+    color: var(--background-primary);
+
+    padding: 9px;
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+
+    display: inline-block;
+}
+.btn-1:hover {
+    background: var(--background-primary);
+    color: var(--color-primary);
+
+    transition: all 0.5s;
+}
+
+.msg {
+    background: #BDE5A6;
+    text-align: center;
+
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Header ------------------------------------------------------------------------------------------------------------------ */
+header {
+    height: 100px;
+    width: 100%;
+
+    background: #fbfbfb95;
+
+    padding: 0 20px;
+
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+/* screens */
+.mobile-screen {
+    display: none;
+}
+@media (max-width: 700px) {
+    .screen {
+        display: none;
+    }
+    .mobile-screen {
+        display: block;
+    }
+}
+
+.screen li {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.mobile-screen li {
+    text-align: center;
+
+    padding: 10px;
+
+    border-bottom: 1px solid var(--color-primary);
+}
+.screen li:hover, .mobile-screen li:hover {
+    background: var(--color-primary);
+    color: #fff;
+
+    transition: all 0.5s;
+}
+
+/* Mobile menu */
+.mobile-screen-icon {
+    color: var(--color-primary);
+    font-size: 30px;
+}
+.mobile-screen-input {
+    height: 30px;
+    width: 30px;
+
+    cursor: pointer;
+    opacity: 0;
+    
+    position: absolute;
+    top: 30px;
+    right: 20px
+}
+.mobile-screen-input:checked ~ .mobile-screen-menu {
+    display: block;
+}
+.mobile-screen-menu {
+    width: 100%;
+    background: var(--background-primary);
+
+    display: none;
+    
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+/* Main -------------------------------------------------------------------------------------------------------------------- */
+/* All */
+main {
+    width: 100%;
+
+    margin: 100px 0 50px 0;
+    padding: 20px;
+}
+
+/* Index */
+.card {
+    height: 100px;
+    max-width: 50% !important;
+
+    margin: 10px 5px;
+    padding: 10px;
+
+    flex: 1 1 49% !important;
+}
+.card-text-limit {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 95%;
+}
+
+@keyframes pulse {
+    0% {
+      background-color: var(--background-primary);
+      transform: scale(1);
+    }
+    25% {
+      background-color: #f1f1f1;
+      transform: scale(1.01);
+    }
+    50% {
+      background-color: var(--background-primary);
+      transform: scale(1);
+    }
+    75% {
+        background-color: #f1f1f1;
+        transform: scale(1.01);
+    }
+    100% {
+        background-color: var(--background-primary);
+        transform: scale(1);
+    }
+}
+.card:hover {
+    animation: pulse 2s infinite;
+}
+@media (max-width: 700px) {
+    .page-header {
+        width: 100%;
+
+        margin-bottom: 20px;
+
+        justify-content: center !important;
+    }
+    .page-search {
+        width: 100%;
+    }
+    .card {
+        max-width: 100% !important;
+
+        flex: 1 1 99% !important;
+    }
+}
+
+/* Footer ------------------------------------------------------------------------------------------------------------------ */
+footer {
+    height: 50px;
+    width: 100%;
+
+    background: var(--background-primary);
+
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    bottom: -50px;
+}
+footer a {
+    font-weight: bold;
+}
