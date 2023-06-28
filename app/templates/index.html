@@ -6,8 +6,30 @@
 
     {% load static %}
 
-    <div class="col-md-8 offset-md-2">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/style_frontpage.css' %}"/>
 
+    <div class="offset-md-1" id="hero-section">
+        <h2>Design minimalista para produtividade máxima</h2>
+
+        <p id="type-animation"></p>
+
+        <p id="hero-paragraph" class="col-md-10">
+            O Note é a solução definitiva para capturar seus pensamentos em qualquer lugar.
+            Com seu design intuitivo e interface minimalista, a tomada de notas se torna fácil,
+            permitindo que você se concentre no que realmente importa. Seja você estudante,
+            profissional ou alguém que adora anotar ideias, o Note oferece uma plataforma
+            segura e perfeita para organizar suas notas sem esforço. Com sincronização confiável
+            entre dispositivos, suas notas estão sempre ao seu alcance, não importa onde você esteja.
+            Inicie sua jornada produtiva hoje com o Note e experimente a alegria da simplicidade
+            na tomada de notas.
+        </p>
+
+        <a id="cta-button" href="/notes/">
+            Comece agora!
+        </a>
+
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+        <script src="{% static 'app/js/typing_frontpage.js' %}"></script>
     </div>
 
 {% endblock %}

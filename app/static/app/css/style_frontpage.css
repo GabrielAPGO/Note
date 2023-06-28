@@ -1,0 +1,31 @@
+#hero-section{
+    position: absolute;
+    top: 5vmax;
+}
+
+#hero-section h2{
+    font-size: 7vmax;
+}
+
+#type-animation{
+    font-size: 3.5vmax;
+}
+
+#hero-paragraph{
+    font-size: 2.25vmax;
+    padding-right: 10%;
+}
+
+#cta-button{
+    padding: 1% 2%;
+    border: 1px solid black;
+    background-color: black;
+    color: white !important;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+#cta-button:hover{
+    background-color: white;
+    color: black !important;
+}
